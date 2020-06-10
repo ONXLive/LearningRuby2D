@@ -1,15 +1,23 @@
 require 'ruby2d'
 
-# Create a new, green square
+# Create a new, white square
 Square.new(color: 'white')
+
+# Print instructions
+Print.__LINE__('Press space to get a new color')
 
 # Create variable
 s = Square.new
 
-# Use hexadecimal values to set a color
-s.color = '#ff0000'
+# Position square
+s.x = 50%
+s.y = 50%
 
-# Use red, green, blue, alpha values to set the color
-s.color = [1, 0.5, 0.2, 1]
+# Use spacebar to generate new random color
+on :key_down do |event|
+  if event.key == 'space'
+  s.color = 'random'
+end
 
-# UNFINISHED FILE
+# Display window
+show
